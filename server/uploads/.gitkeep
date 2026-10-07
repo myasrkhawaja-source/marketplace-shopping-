@@ -1,0 +1,2 @@
+# Uploaded product / avatar images are stored here at runtime.
+# The folder is kept in git, its content is ignored (see .gitignore).

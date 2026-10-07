@@ -1,0 +1,34 @@
+{
+  "name": "beauty-marketplace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Beauty Marketplace - Full-Stack platform (MongoDB + Express REST API + React) for beauty products, skin care, perfumes, accessories and beauty services booking.",
+  "keywords": [
+    "marketplace",
+    "beauty",
+    "mern",
+    "express",
+    "mongodb",
+    "react"
+  ],
+  "author": "Beauty Marketplace Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n API,WEB -c blue,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start",
+    "seed": "npm --prefix server run seed",
+    "seed:destroy": "npm --prefix server run seed:destroy",
+    "test": "npm --prefix server test",
+    "build": "npm --prefix client run build",
+    "lint": "npm --prefix server run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

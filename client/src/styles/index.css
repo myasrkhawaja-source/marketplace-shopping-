@@ -1,0 +1,12 @@
+/* =============================================================
+   Beauty Marketplace - styles entry point
+   The CSS is split by concern, this file only imports them:
+     base.css       : variables, reset, typography, buttons, forms
+     layout.css     : navbar, footer, containers, dashboard shell
+     components.css : cards, tables, badges, toasts, pagination ...
+     pages.css      : page specific blocks (hero, product page ...)
+   ============================================================= */
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './pages.css';

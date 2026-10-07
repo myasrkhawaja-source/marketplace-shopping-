@@ -1,0 +1,289 @@
+/* =============================================================
+   base.css - design tokens, reset, typography, buttons & forms
+   ============================================================= */
+
+:root {
+  /* Rose & gold beauty palette */
+  --primary: #d6336c;
+  --primary-dark: #b02a5b;
+  --primary-light: #f8d7e3;
+  --accent: #c9a227;
+  --accent-light: #fdf3e3;
+
+  --text: #2b2b33;
+  --text-muted: #6b6b7b;
+  --border: #ececf1;
+  --bg: #ffffff;
+  --bg-soft: #fdf7f9;
+  --bg-muted: #f6f6f9;
+
+  --success: #2f9e63;
+  --warning: #d9930f;
+  --danger: #d64545;
+  --info: #3b7dd8;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(43, 43, 51, 0.06);
+  --shadow: 0 8px 24px rgba(43, 43, 51, 0.08);
+  --shadow-lg: 0 18px 40px rgba(43, 43, 51, 0.12);
+  --container: 1200px;
+  --font: 'Cairo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg-soft);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.6rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 2.4vw, 2rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--primary-dark); }
+
+img { max-width: 100%; display: block; }
+
+ul { margin: 0; padding-left: 1.1rem; }
+
+/* ------------------------------ Layout helpers ----------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.page {
+  padding: 2rem 0 3.5rem;
+  min-height: 60vh;
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.muted { color: var(--text-muted); }
+.small { font-size: 0.85rem; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.nowrap { white-space: nowrap; }
+.grow { flex: 1; }
+
+/* ------------------------------ Buttons ------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.6rem 1.3rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+  background: var(--primary);
+  color: #fff;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary-light); color: var(--primary-dark); }
+
+.btn-light {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-light:hover { background: var(--bg-muted); }
+
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #b08f1f; }
+
+.btn-success { background: var(--success); }
+.btn-success:hover { background: #268052; }
+
+.btn-danger { background: var(--danger); }
+.btn-danger:hover { background: #b93a3a; }
+
+.btn-sm { padding: 0.35rem 0.85rem; font-size: 0.82rem; }
+.btn-lg { padding: 0.85rem 1.9rem; font-size: 1.02rem; }
+.btn-block { width: 100%; }
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.25rem 0.45rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+}
+.btn-icon:hover { background: var(--bg-muted); color: var(--primary); }
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--primary);
+  cursor: pointer;
+}
+.link-btn:hover { text-decoration: underline; }
+
+/* ------------------------------ Forms ------------------------------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.field .hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(214, 51, 108, 0.12);
+}
+
+textarea { min-height: 110px; resize: vertical; }
+
+input[type='checkbox'],
+input[type='radio'] { width: auto; }
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-error {
+  background: #fdecec;
+  border: 1px solid #f7c6c6;
+  color: #a43030;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+}
+
+.form-success {
+  background: #eaf7f0;
+  border: 1px solid #bfe6d1;
+  color: #1e6b45;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* ------------------------------ Misc -------------------------------------- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: 0;
+  margin: 1.5rem 0;
+}
+
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+.row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.grid { display: grid; gap: 1.25rem; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+@media (max-width: 640px) {
+  .page { padding: 1.25rem 0 2.5rem; }
+}
